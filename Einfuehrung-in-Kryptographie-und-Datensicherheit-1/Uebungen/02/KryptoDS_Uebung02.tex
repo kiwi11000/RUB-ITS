@@ -1,0 +1,123 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\author{Tilman Bender   Matrikelnummer: 108011247244\\}
+\title{Einführung in Kryptographie und Datensicherheit Übung 1}
+
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 1}
+\subsection*{a)}
+\subsubsection*{i}	\begin{math} -16 * -15 \equiv 22 \mod 29 \end{math}
+\subsubsection*{ii}	\begin{math} 17 * 3 \equiv 22 \mod 29 \end{math}
+\subsubsection*{iii}	\begin{math} 11 * 2  \equiv 22 \mod 29 \end{math}
+\subsubsection*{iv}	\begin{math}  -7 * 1 \equiv 22 \mod 29 \end{math}
+\subsubsection*{v}	\begin{math}  -1 * 7 \equiv 22 \mod 29 \end{math}
+\subsection*{b)}
+
+\subsection*{c)}
+\subsubsection*{i}\begin{math}  3 * 3^{-1} \equiv 1 \mod 29 \Rightarrow 3^{-1} \equiv 10 \mod 29 \end{math}
+\subsubsection*{ii} \begin{math}   6 * 6^{-1} \equiv 1 \mod 23 \Rightarrow 6^{-1} \equiv 4 \mod 23 \Rightarrow 2 * 6^{-1} \equiv 8 \mod 23 \end{math}
+\subsubsection*{iii} 
+\begin{math}   
+3*3^{-1} \equiv 1 \mod 13  \Rightarrow 3^{-1} \equiv 9 \mod 13 
+9*9^{-1} \equiv 1 \mod 13 \Rightarrow 9^{-1} \equiv  3 \mod 13
+\Rightarrow 7*3-1*4*9^{-1} \equiv 2 \mod 13
+\end{math}
+
+
+
+\section*{Aufgabe 2}
+\subsection*{a)} Die Chancen stehen günstiger für den Angreifer, da er lediglich einen ausnutzbaren Fehler finden muss. Der Verteidiger dagegen muss sein System gegen alle bekannten Angriffe absichern.
+\subsection*{b)} Kryptographie kann Sicherheitsziele nur  bis zu dem Punkt schützen, ab dem es einfacher ist sich die Informationen auf einem Anderen weg als dem direkten Knacken des Systems zu besorgen. Hier kommt wieder das Angreifermodell zum Tragen: Eine Festplattenverschlüsselung kann die Vertraulichkeit und Integrität der gespeicherten Informationen nur so lange gewähren, bis der Benutzer (z.B. durch Beugehaft) gezwungen wird sein Passwort zu verraten.
+\subsection*{c)} 
+\begin{quote}
+there’s no test possible that can prove the absence of flaws
+\end{quote}
+Systeme werden meist nur auf Funktionalität hin überprüft (d.h. ob das System das tut, was gefordert wird). Um die Abwesenheit von Fehlern zu attestieren müsste man allerdings sicherstellen, das das System für alle möglichen Eingaben nur das geforderte tut. Da dies nicht möglich ist, kann man lediglich prüfen ob das System für einen bestimmten bekannten Angriff anfällig ist. Selbst wenn ein System allen zur Zeit der Erstellung bekannten Angriffen standhält, heißt das nicht
+dass das System auf Dauer sicher bleibt.
+\subsection*{d)}
+Ein gutes kryptographisches System muss vom Design (Mathematik), über die Implementierung (Elektrotechnik, Programmierung) bis hin zur Installation und Benutzung den Anforderungen entsprechend umgesetzt werden. Die Sicherheit eines (kryptographischen) Systems stellt also eine Kette da, bei der das schwächste Glied darüber entscheidet ob das System sicher ist oder nicht. Die Tatsache, dass bei den einzelnen Gliedern verschiedenes Wissen über die Problemstellung vorliegt, macht das Unterfangen umso schwieriger. 
+
+Bereits beim Entwurf des System sollte darauf geachtet werden, dass Folgende Fragen beantwortet werden:
+
+\begin{itemize}
+\item \textbf{Was} soll das System schützen?
+\item \textbf{Vor wem} soll das System schützen?
+\begin{itemize}
+\item Motivation
+\item Ressourcen (Zeit, Geld, Hardware, Software, Know-How)
+\end{itemize}
+\item \textbf{Wie lange} soll das System schützen?
+\item \textbf{Wer} wird das System einsetzen?
+\item \textbf{Wie} wird der Benutzer das System einsetzen?
+\end{itemize}
+
+\subsection*{e)}
+Durch die Politik das Versagen von Sicherheitssystemen unter den Teppich zu kehren wird den zukünftigen Machern neuer Systeme die Möglichkeit verwehrt aus den Fehlern voriger Generationen zu lernen. Sie können ihre Systeme nicht gegen
+einen Angriff absichern, der nie publiziert wurde. 
+
+\subsection*{f)}
+Neben der Beantwortung der in d) aufgeführten fragen, sollten die Macher künftiger kryptographischer Systeme, immer davon ausgehen dass der Angreifer mächtiger ist und über mehr Ressourcen verfügt als erwartet. Das entworfene System sollte also auch fragen Standhalten wie:  Was wäre, wenn der Angreifer ein vielfaches an Speicherplatz/Rechenleistung/ etc. zur Verfügung hat?
+Ein gutes kryptographisches System zieht heute bereits die Angreifer von morgen in Betracht.
+
+\section*{Aufgabe 3}
+\subsection*{a)}
+\begin{table}[htdp]
+\caption{Stubstitutionstabelle für \textsl{k} = 10}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+	Klartext & Position & Neue Position & Geheimtext\\ \hline
+	a & 0 & \begin{math} 0 + 10 \equiv 10 \mod 26\end{math} & K \\ \hline
+	b & 1 & \begin{math} 1 + 10 \equiv 11 \mod 26 \end{math} & L \\ \hline
+	c & 2 & \begin{math} 2 + 10  \equiv 12  \mod 26 \end{math} & M \\ \hline
+	d & 3 & \begin{math} 3 + 10  \equiv 13 \mod 26 \end{math}  & N \\ \hline
+	e & 4 & \begin{math} 4 + 10 \equiv 14 \mod 26 \end{math}  & O \\ \hline
+	f & 5 & \begin{math} 5 + 10 \equiv 15 \mod 26 \end{math}   & P \\ \hline
+	g & 6 & \begin{math} 6 + 10 \equiv 16 \mod 26 \end{math}  & Q \\ \hline
+	h & 7 & \begin{math} 7 + 10 \equiv 17 \mod 26 \end{math}  & R \\ \hline
+	i & 8 & \begin{math} 8 + 10 \equiv 18 \mod 26 \end{math} & S \\ \hline
+	j & 9 & \begin{math} 9 + 10 \equiv 19 \mod 26 \end{math}   & T \\ \hline
+	k & 10 & \begin{math} 10 + 10 \equiv 20 \mod 26 \end{math}  & U \\ \hline
+	l & 11 & \begin{math} 11+ 10 \equiv 21 \mod 26 \end{math}  & V \\ \hline
+	m & 12 & \begin{math} 12 + 10 \equiv 22 \mod 26 \end{math} & W \\ \hline
+	n & 13 & \begin{math} 13 + 10 \equiv 23 \mod 26 \end{math} & X \\ \hline
+	o & 14 & \begin{math} 14 + 10 \equiv\ 24 \mod 26 \end{math} & Y \\ \hline
+	p & 15 & \begin{math} 15 + 10 \equiv 25 \mod 26 \end{math} & Z \\ \hline
+	q & 16 & \begin{math} 16 + 10 \equiv 0 \mod 26 \end{math} & A \\ \hline
+	r & 17 & \begin{math} 17 + 10 \equiv 1 \mod 26 \end{math}  & B \\ \hline
+	s & 18 & \begin{math} 18 + 10 \equiv 2 \mod 26 \end{math} & C \\ \hline
+	t & 19 & \begin{math} 19 + 10 \equiv 3 \mod 26 \end{math} & D \\ \hline
+	u & 20 & \begin{math} 20 + 10 \equiv 4 \mod 26 \end{math} & E \\ \hline
+	v & 21 & \begin{math} 21 + 10 \equiv 5 \mod 26 \end{math} & F \\ \hline
+	w & 22 & \begin{math} 22 + 10 \equiv 6 \mod 26 \end{math} & G \\ \hline
+	x & 23 & \begin{math} 23 + 10 \equiv 7 \mod 26 \end{math}  & H \\ \hline
+	y & 24 & \begin{math} 24 + 10 \equiv 8 \mod 26 \end{math} & I \\ \hline
+	z & 25 & \begin{math} 25 + 10 \equiv 9 \mod 26 \end{math} & J \\ \hline
+\end{tabular}
+\end{center}
+\label{default}
+\end{table}%
+
+\subsection*{b)}
+\begin{table}[htdp]
+\caption{Shift-Chiffre mit k=10 angewendet}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+	d & a &  t & e & n & s & i & c & h & e & r & h & e  & i & t \\ \hline
+	 N & K & D & O & X & C & S & M & R & O & B\ & R & O & S & D \\ \hline
+\end{tabular}
+\end{center}
+\label{default}
+\end{table}%
+\subsection*{c)}
+Die Shift-Chiffre ist lediglich ein Spezialfall der Substitionschiffre bei dem die Substitutionsregeln nach einem bestimmten Schema generiert wurden. Damit ist die Shift-Chiffre auch für Frequenzanalyse anfällig. Streng genommen könnte man sogar behaupten, dass die Shift-Chiffre bei großen Alphabeten etwas unsicherer ist, da ein Angreifer der die Substitutionsregeln für mehrere im Alphabet aufeinander folgende Buchstaben kennt daraus auf die allgemeine Regel (den Shift-Offset) schließen könnte.
+\subsection*{d)}
+Ja das erhöhen des Offsets mit jedem Buchstaben erhöht die Sicherheit gegenüber der Frequenzanalyse. Diese beruht darauf, dass zwei Vorkommen eines Buchstabens des Klartext-Alphabets immer mit dem selben Buchstaben des Chiffre-Alphabets ersetzt werden und so die statistischen Eigenschafen des Klartexts auf den Chiffretext übergehen. Durch das Verschieben des Offsets erhält der Chiffre-Text eine andere Häufigkeitsverteilung als der Klartext. Dieses Verfahren gehört zur Klasse der polyalphabetischen Chiffren, da für jeden Buchstaben ein anderes (um 1 Verschobenes) Chiffre-Alphabet verwendet wird. Eine Verbesserte Art dieser Chiffre, die einen Schlüssel zum Wechseln zwischen den Verschiedenen Chiffre-Alphabeten verwendet, wurde 1586 von Vigenère vorgestellt.
+\end{document}
