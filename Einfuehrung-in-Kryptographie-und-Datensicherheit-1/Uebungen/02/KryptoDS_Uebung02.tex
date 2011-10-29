@@ -14,22 +14,36 @@
 
 \section*{Aufgabe 1}
 \subsection*{a)}
-\subsubsection*{i}	\begin{math} -16 * -15 \equiv 22 \mod 29 \end{math}
-\subsubsection*{ii}	\begin{math} 17 * 3 \equiv 22 \mod 29 \end{math}
-\subsubsection*{iii}	\begin{math} 11 * 2  \equiv 22 \mod 29 \end{math}
-\subsubsection*{iv}	\begin{math}  -7 * 1 \equiv 22 \mod 29 \end{math}
-\subsubsection*{v}	\begin{math}  -1 * 7 \equiv 22 \mod 29 \end{math}
+\renewcommand{\theequation}{\roman{equation}}
+\begin{align} 
+13*24 \equiv 22 \mod 29 
+\end{align}
+\begin{align} 
+17 * 1337 \mod 29 \notag\\
+17 * 3 \equiv 22 \mod 29 \end
+{align}
+\begin{align} 
+69 * 31\mod 29 \notag \\
+11 * 2  \equiv 22 \mod 29 \end{align}
+\begin{align}  
+(-36)*(-28) \mod 29 \notag \\
+22 * 1 \equiv 22 \mod 29 \end{align}
+\begin{align}
+231 * (-51) \mod29  \notag \\
+-1 * 7 \equiv 22 \mod 29
+ \end{align}
 \subsection*{b)}
 
 \subsection*{c)}
-\subsubsection*{i}\begin{math}  3 * 3^{-1} \equiv 1 \mod 29 \Rightarrow 3^{-1} \equiv 10 \mod 29 \end{math}
-\subsubsection*{ii} \begin{math}   6 * 6^{-1} \equiv 1 \mod 23 \Rightarrow 6^{-1} \equiv 4 \mod 23 \Rightarrow 2 * 6^{-1} \equiv 8 \mod 23 \end{math}
-\subsubsection*{iii} 
-\begin{math}   
-3*3^{-1} \equiv 1 \mod 13  \Rightarrow 3^{-1} \equiv 9 \mod 13 
-9*9^{-1} \equiv 1 \mod 13 \Rightarrow 9^{-1} \equiv  3 \mod 13
-\Rightarrow 7*3-1*4*9^{-1} \equiv 2 \mod 13
-\end{math}
+\setcounter{equation}{0}
+\begin{equation}  3 * 3^{-1} \equiv 1 \Rightarrow 3^{-1} \equiv 10 \mod 29 \end{equation}
+\begin{align}   6 * 6^{-1} \equiv 1 \Rightarrow 6^{-1} \equiv 4 \mod 23 \notag\\
+ \Rightarrow 2 * 6^{-1} \equiv 8 \mod 23 \end{align}
+\begin{align}   
+3*3^{-1} \equiv 1\Rightarrow 3^{-1} \equiv 9 \mod 13 \notag \\
+9*9^{-1} \equiv 1 \Rightarrow 9^{-1} \equiv  3 \mod 13\\
+\Rightarrow 7*3-1*4*9^{-1} \equiv 2 \mod 13 \notag
+\end{align}
 
 
 
@@ -69,6 +83,7 @@ Ein gutes kryptographisches System zieht heute bereits die Angreifer von morgen 
 
 \section*{Aufgabe 3}
 \subsection*{a)}
+Siehe \ref{tbl:alphabet}
 \begin{table}[htdp]
 \caption{Stubstitutionstabelle für \textsl{k} = 10}
 \begin{center}
@@ -102,10 +117,11 @@ Ein gutes kryptographisches System zieht heute bereits die Angreifer von morgen 
 	z & 25 & \begin{math} 25 + 10 \equiv 9 \mod 26 \end{math} & J \\ \hline
 \end{tabular}
 \end{center}
-\label{default}
+\label{tbl:alphabet}
 \end{table}%
 
 \subsection*{b)}
+Siehe \ref{tbl:encryption}. 
 \begin{table}[htdp]
 \caption{Shift-Chiffre mit k=10 angewendet}
 \begin{center}
@@ -114,7 +130,7 @@ Ein gutes kryptographisches System zieht heute bereits die Angreifer von morgen 
 	 N & K & D & O & X & C & S & M & R & O & B\ & R & O & S & D \\ \hline
 \end{tabular}
 \end{center}
-\label{default}
+\label{tbl:encryption}
 \end{table}%
 \subsection*{c)}
 Die Shift-Chiffre ist lediglich ein Spezialfall der Substitionschiffre bei dem die Substitutionsregeln nach einem bestimmten Schema generiert wurden. Damit ist die Shift-Chiffre auch für Frequenzanalyse anfällig. Streng genommen könnte man sogar behaupten, dass die Shift-Chiffre bei großen Alphabeten etwas unsicherer ist, da ein Angreifer der die Substitutionsregeln für mehrere im Alphabet aufeinander folgende Buchstaben kennt daraus auf die allgemeine Regel (den Shift-Offset) schließen könnte.
