@@ -1,0 +1,70 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\author{Tilman Bender   Matrikelnummer: 108011247244\\}
+\title{Einführung in Kryptographie und Datensicherheit Übung 2}
+
+\begin{document}
+\maketitle
+\section*{Aufgabe 3}
+\subsection*{a)}
+Siehe \ref{tbl:alphabet}
+\begin{table}[htdp]
+\caption{Stubstitutionstabelle für \textsl{k} = 10}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+	Klartext & Position & Neue Position & Geheimtext\\ \hline
+	a & 0 & \begin{math} 0 + 10 \equiv 10 \mod 26\end{math} & K \\ \hline
+	b & 1 & \begin{math} 1 + 10 \equiv 11 \mod 26 \end{math} & L \\ \hline
+	c & 2 & \begin{math} 2 + 10  \equiv 12  \mod 26 \end{math} & M \\ \hline
+	d & 3 & \begin{math} 3 + 10  \equiv 13 \mod 26 \end{math}  & N \\ \hline
+	e & 4 & \begin{math} 4 + 10 \equiv 14 \mod 26 \end{math}  & O \\ \hline
+	f & 5 & \begin{math} 5 + 10 \equiv 15 \mod 26 \end{math}   & P \\ \hline
+	g & 6 & \begin{math} 6 + 10 \equiv 16 \mod 26 \end{math}  & Q \\ \hline
+	h & 7 & \begin{math} 7 + 10 \equiv 17 \mod 26 \end{math}  & R \\ \hline
+	i & 8 & \begin{math} 8 + 10 \equiv 18 \mod 26 \end{math} & S \\ \hline
+	j & 9 & \begin{math} 9 + 10 \equiv 19 \mod 26 \end{math}   & T \\ \hline
+	k & 10 & \begin{math} 10 + 10 \equiv 20 \mod 26 \end{math}  & U \\ \hline
+	l & 11 & \begin{math} 11+ 10 \equiv 21 \mod 26 \end{math}  & V \\ \hline
+	m & 12 & \begin{math} 12 + 10 \equiv 22 \mod 26 \end{math} & W \\ \hline
+	n & 13 & \begin{math} 13 + 10 \equiv 23 \mod 26 \end{math} & X \\ \hline
+	o & 14 & \begin{math} 14 + 10 \equiv\ 24 \mod 26 \end{math} & Y \\ \hline
+	p & 15 & \begin{math} 15 + 10 \equiv 25 \mod 26 \end{math} & Z \\ \hline
+	q & 16 & \begin{math} 16 + 10 \equiv 0 \mod 26 \end{math} & A \\ \hline
+	r & 17 & \begin{math} 17 + 10 \equiv 1 \mod 26 \end{math}  & B \\ \hline
+	s & 18 & \begin{math} 18 + 10 \equiv 2 \mod 26 \end{math} & C \\ \hline
+	t & 19 & \begin{math} 19 + 10 \equiv 3 \mod 26 \end{math} & D \\ \hline
+	u & 20 & \begin{math} 20 + 10 \equiv 4 \mod 26 \end{math} & E \\ \hline
+	v & 21 & \begin{math} 21 + 10 \equiv 5 \mod 26 \end{math} & F \\ \hline
+	w & 22 & \begin{math} 22 + 10 \equiv 6 \mod 26 \end{math} & G \\ \hline
+	x & 23 & \begin{math} 23 + 10 \equiv 7 \mod 26 \end{math}  & H \\ \hline
+	y & 24 & \begin{math} 24 + 10 \equiv 8 \mod 26 \end{math} & I \\ \hline
+	z & 25 & \begin{math} 25 + 10 \equiv 9 \mod 26 \end{math} & J \\ \hline
+\end{tabular}
+\end{center}
+\label{tbl:alphabet}
+\end{table}%
+
+\subsection*{b)}
+Siehe \ref{tbl:encryption}. 
+\begin{table}[htdp]
+\caption{Shift-Chiffre mit k=10 angewendet}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+	d & a &  t & e & n & s & i & c & h & e & r & h & e  & i & t \\ \hline
+	 N & K & D & O & X & C & S & M & R & O & B\ & R & O & S & D \\ \hline
+\end{tabular}
+\end{center}
+\label{tbl:encryption}
+\end{table}%
+\subsection*{c)}
+Die Shift-Chiffre ist lediglich ein Spezialfall der Substitionschiffre bei dem die Substitutionsregeln nach einem bestimmten Schema generiert wurden. Damit ist die Shift-Chiffre auch für Frequenzanalyse anfällig. Streng genommen könnte man sogar behaupten, dass die Shift-Chiffre bei großen Alphabeten etwas unsicherer ist, da ein Angreifer der die Substitutionsregeln für mehrere im Alphabet aufeinander folgende Buchstaben kennt daraus auf die allgemeine Regel (den Shift-Offset) schließen könnte.
+\subsection*{d)}
+Ja das erhöhen des Offsets mit jedem Buchstaben erhöht die Sicherheit gegenüber der Frequenzanalyse. Diese beruht darauf, dass zwei Vorkommen eines Buchstabens des Klartext-Alphabets immer mit dem selben Buchstaben des Chiffre-Alphabets ersetzt werden und so die statistischen Eigenschafen des Klartexts auf den Chiffretext übergehen. Durch das Verschieben des Offsets erhält der Chiffre-Text eine andere Häufigkeitsverteilung als der Klartext.
+\end{document}

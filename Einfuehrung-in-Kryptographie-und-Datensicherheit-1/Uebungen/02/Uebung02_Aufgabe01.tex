@@ -1,0 +1,48 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\author{Tilman Bender   Matrikelnummer: 108011247244\\}
+\title{Einführung in Kryptographie und Datensicherheit Übung 2}
+
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 1}
+\subsection*{a)}
+\renewcommand{\theequation}{\roman{equation}}
+\begin{align} 
+13*24 \equiv 22 \mod 29 
+\end{align}
+\begin{align} 
+17 * 1337 \mod 29 \notag\\
+17 * 3 \equiv 22 \mod 29 \end
+{align}
+\begin{align} 
+69 * 31\mod 29 \notag \\
+11 * 2  \equiv 22 \mod 29 \end{align}
+\begin{align}  
+(-36)*(-28) \mod 29 \notag \\
+22 * 1 \equiv 22 \mod 29 \end{align}
+\begin{align}
+231 * (-51) \mod29  \notag \\
+-1 * 7 \equiv 22 \mod 29
+ \end{align}
+\subsection*{b)}
+In allen fünf Fällen können die Multiplikationen vereinfacht werden indem man kleinere Faktoren aus der gleichen Äquivalenzklasse verwendet.
+\subsection*{c)}
+\setcounter{equation}{0}
+\begin{equation}  3 * 3^{-1} \equiv 1 \Rightarrow 3^{-1} \equiv 10 \mod 29 \end{equation}
+\begin{align}   6 * 6^{-1} \equiv 1 \Rightarrow 6^{-1} \equiv 4 \mod 23 \notag\\
+ \Rightarrow 2 * 6^{-1} \equiv 8 \mod 23 \end{align}
+\begin{align}   
+3*3^{-1} \equiv 1\Rightarrow 3^{-1} \equiv 9 \mod 13 \notag \\
+9*9^{-1} \equiv 1 \Rightarrow 9^{-1} \equiv  3 \mod 13\\
+\Rightarrow 7*3-1*4*9^{-1} \equiv 2 \mod 13 \notag
+\end{align}
+\end{document}
