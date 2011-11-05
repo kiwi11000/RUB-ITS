@@ -1,0 +1,82 @@
+\documentclass[12pt.twoside,a4paper,notitlepage]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{nameref}
+
+\begin{document}
+\title{Netzsicherheit I, WS 2011, Übung 2}
+\author{
+\begin{tabular}{ccc}
+Tilman Bender & Christian Kröger & Thomas Tacke \\
+108011247244 & 108011250663 & 108011267882 \\
+\end{tabular}
+}
+\date{\today}
+\maketitle
+
+\section*{WLAN \& RC4}
+\begin{itemize}
+\item Wie man anhand der Tabelle \nameref{tab:ksa} sieht, ist der Output nicht stimmig.\\
+TODO: Yaddda Yadda dings da.
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+i & j & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\hline
+0 & 4 & 4 & 1 & 2 & 3 & 0 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\hline
+1 & 3 & 4 & 3 & 2 & 1 & 0 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\hline
+2 & 14 & 4 & 3 & 14 & 1 & 0 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 2 & 15 \\
+\hline
+3 & 12 & 4 & 3 & 14 & 12 & 0 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 1 & 13 & 2 & 15 \\
+\hline
+4 & 7 & 4 & 3 & 14 & 12 & 7 & 5 & 6 & 0 & 8 & 9 & 10 & 11 & 1 & 13 & 2 & 15 \\
+\hline
+5 & 3 & 4 & 3 & 14 & 5 & 7 & 12 & 6 & 0 & 8 & 9 & 10 & 11 & 1 & 13 & 2 & 15 \\
+\hline
+\end{tabular}
+\caption{Hilfsmittel zur KSA-Berechnung a)}
+\label{tab:ksa}
+\end{table}
+
+\item $K[6=13]$\\
+Yadda Yadda dings da TODO.
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+i & j & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\hline
+0 & 4 & 4 & 1 & 2 & 3 & 0 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\hline
+1 & 3 & 4 & 3 & 2 & 1 & 0 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\hline
+2 & 14 & 4 & 3 & 14 & 1 & 0 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 2 & 15 \\
+\hline
+3 & 12 & 4 & 3 & 14 & 12 & 0 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 1 & 13 & 2 & 15 \\
+\hline
+4 & 7 & 4 & 3 & 14 & 12 & 7 & 5 & 6 & 0 & 8 & 9 & 10 & 11 & 1 & 13 & 2 & 15 \\
+\hline
+5 & 6 & 4 & 3 & 14 & 12 & 7 & 6 & 5 & 0 & 8 & 9 & 10 & 11 & 1 & 13 & 2 & 15 \\
+\hline
+6 & 8 & 4 & 3 & 14 & 12 & 7 & 6 & 8 & 0 & 5 & 9 & 10 & 11 & 1 & 13 & 2 & 15 \\
+\hline
+\end{tabular}
+\caption{Hilfsmittel zur KSA-Berechnung b)}
+\label{tab:ksa}
+\end{table}
+
+\item Yadda Yadde dings da TODO\\
+wharscheinlichkeiten $\approx  60$ dingsdas, weist schon qed.
+
+\end{itemize}
+
+
+
+\end{document}
