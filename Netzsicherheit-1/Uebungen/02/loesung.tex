@@ -47,8 +47,14 @@ i & j & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
 \label{tab:ksa}
 \end{table}
 
-\item $K[6=13]$\\
-Yadda Yadda dings da TODO.
+\item $K[6=4]$\\
+$z[0]=5=s[s[1]+s[s[1]]]=s[3+s[3]]=s[3+12]=s[15]$\\
+also output an s[15] muss gleich 5 sein\\
+Yadda Yadda dings da TODO. \\
+$j = (j + s[i] + k[i mod L]) mod 16 $\\
+$j = 6(old j) + 5 + k[i]$ \\
+$15 = 11 + x$\\
+$K[6] = 4 $
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -67,7 +73,7 @@ i & j & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
 \hline
 5 & 6 & 4 & 3 & 14 & 12 & 7 & 6 & 5 & 0 & 8 & 9 & 10 & 11 & 1 & 13 & 2 & 15 \\
 \hline
-6 & 8 & 4 & 3 & 14 & 12 & 7 & 6 & 8 & 0 & 5 & 9 & 10 & 11 & 1 & 13 & 2 & 15 \\
+6 & 15 & 4 & 3 & 14 & 12 & 7 & 6 & 15 & 0 & 8 & 9 & 10 & 11 & 1 & 13 & 2 & 5 \\
 \hline
 \end{tabular}
 \caption{Hilfsmittel zur KSA-Berechnung b)}
