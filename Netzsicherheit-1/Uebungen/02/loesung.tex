@@ -21,11 +21,20 @@ Tilman Bender & Christian Kröger & Thomas Tacke \\
 
 \section*{WLAN \& RC4}
 \begin{enumerate}[a)]
-\item Wie man anhand der Tabelle \nameref{tab:ksa} sieht, ist der Output nicht stimmig.\\
+\item Wie man anhand der Tabelle \nameref{tab:ksa} sieht, funktioniert der Angriff nicht, da der Output nicht stimmig ist.\\
+Dies ist daran zu sehen, das die 5 der erste z Wert ist, und dieser daher in der nächste Operation an die Stelle bewegt werden müsste,
+auf die durch S[S[1]+S[S[1]] verwiesen wird. In diesem Fall wäre dies die Position 8.\\ Die 5 kann jedoch nicht auf diese
+Position bewegt werden, da i auf Position 6 zeigt, was bedeutet das ein beliebiges Element mit dem an Position 6 getauscht werden 
+kann jedoch nicht mit dem an Position 8 (bzw. es ist nicht möglich Position 3 mit 8 zu tauschen, was nötig wäre um die 5 auf 
+Position 8 zu verschieben, da eine der beiden zu vertauschenden Positionen aufjedenfall Position 6 ist).\\
+Um es zu ermöglichen, das im nächsten Schritt die Position der 5 verändert werden kann, ist es nötig diese auf Position 6 zu 
+verschieben (denn dadurch wird i im folgenden Schritt auf die 5 verweisen und es ist möglich die 5 mit Hilfe des zu berechnenden $K[6]$
+an die korrekte Position zu verschieben).\\
+Die 5 kann durch folgende Änderung auf Position 6 verschoben werden: \\
 $K[5] = 10 \wedge \neq 7$
-TODO: Yaddda Yadda dings da.
-daher so zurück das erster output = 5 bzw. das mit dem nächsten keybit 5 auf die korrekte stelle gesetzt werden kann.
-deshalb k5 zu 10 machen damit im nächsten schritt die s[6] auf 5 zeigt und die 5 an die richtige position getauscht werden kann.
+%TODO: Yaddda Yadda dings da.
+%daher so zurück das erster output = 5 bzw. das mit dem nächsten keybit 5 auf die korrekte stelle gesetzt werden kann.
+%deshalb k5 zu 10 machen damit im nächsten schritt die s[6] auf 5 zeigt und die 5 an die richtige position getauscht werden kann.
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
@@ -50,12 +59,15 @@ i & j & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
 \end{table}
 
 \item $K[6=4]$\\
-$z[0]=5=s[s[1]+s[s[1]]]=s[3+s[3]]=s[3+12]=s[15]$\\
-also output an s[15] muss gleich 5 sein\\
-Yadda Yadda dings da TODO. \\
-$j = (j + s[i] + k[i mod L]) mod 16 $\\
-$j = 6(old j) + 5 + k[i]$ \\
-$15 = 11 + x$\\
+Dies ist zu sehen durch: \\
+$z[0]=5=S[S[1]+S[S[1]]]=S[3+S[3]]=S[3+12]=S[15]$. Daher muss an Position 15 der Wert 5 stehen, was durch $K[6]$ zu 
+erreichen ist.\\
+%also output an s[15] muss gleich 5 sein\\
+%Yadda Yadda dings da TODO. \\
+Dies führt zu der Berechnung: \\
+$j = (j + S[i] + k[6]) mod 16 $\\
+$j = 6(alter j Wert) + 5 + k[6]$ \\
+$15 = 11 + k[6]$\\
 $K[6] = 4 $
 \begin{table}[h]
 \centering
@@ -83,8 +95,13 @@ i & j & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
 \end{table}
 
 \item Yadda Yadde dings da TODO\\
-wharscheinlichkeiten $\approx  60$ dingsdas, weist schon qed.
-Daher krasser stuff der nich immer klappt
+%wharscheinlichkeiten $\approx  60$ dingsdas, weist schon qed.
+%Daher krasser stuff der nich immer klappt
+
+Die Berechnung des Schlüsselwortes ist nicht immer korrekt, was daran gesehen werden kann, das im Durchschnitt ca. 60
+verschiedene Werte benötigt werden um ein folgendes Schlüssel Element (von K) zu errechnen.\\
+Die Wahrscheinlichkeit, das dies für einen passenden IV funktioniert ist ca. 5 Prozent, daher ist man mit ca. 60 Werten jenseits der 50 Prozent.\\
+
 \end{enumerate}
 
 
