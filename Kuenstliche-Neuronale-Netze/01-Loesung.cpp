@@ -1,5 +1,7 @@
 // Christian Kröger; 108011250663; christian.kroeger@gmail.com
 // Thomas Tacke; 108011267882; kiwi11000@googlemail.com
+// d) Beiede Beispiele haben zu Anfeng den gleichen Wert. Und gehen anschlieqend gegen 0, wobei sich die Werte der Trainingsbeispiele stärker annähren. Siehe Abb. Cos.png
+// e) Die Trainingsbeispiele gehen gegen den Wert 0.001 und die der Testmenge gegen 100, wie man auf der Abb. Gaus.png gut sehen kann. Im Vergleich zur cos-Funktion sind die Differenzes zwischen der Trainings und den Testbeispielen viel größer.
 
 #include "Matrix.h"
 #include <iostream>
@@ -28,7 +30,6 @@ int main(int argc, char* argv[]) {
     //trainingset berechnen
     for(int i=0; i<P; i++) {
         x[i] = (((2 * (i + 1) - 1) * M_PI) / P);
-        std::cout << x[i] << std::endl;
         // Cos
         t[i] = cos(x[i] / 2);
         // Gauss
@@ -44,19 +45,14 @@ int main(int argc, char* argv[]) {
         // tDach[i] = exp(-1 * (pow(xDach[i], 2) / (2* pow(0.6, 2))));
     }
 
-
     for(int i=0; i<M_MAX; i++) {
         std::cout << std::endl << std::endl << "Komplaexitaet M= " << i << std::endl;
 
         //Fehler des Trainingssets berechnen (param x, t sind die Trainingssetdaten)
-        //std::cout << "Error vom Trainingsset: " << 
-		calcAndReturnError(x,t, xDach, tDach, i, P); //<< std::endl;
+		calcAndReturnError(x,t, xDach, tDach, i, P);
         //Fehler des Testsets berechnen (param xDach, tDach sind die Testsetdaten)
         //std::cout << "Error vom Testset: " <<calcAndReturnError(xDach,tDach, i, P)<<std::endl;
     }
-
-
-
     return 0;
 }
 
@@ -66,7 +62,7 @@ double calcAndReturnError(double* x,double* t,double* x1,double* t1,int M,int P)
     Matrix MC(M+1, M+2);
     MC.initialize(0.0);
 
-//a_{km}
+	//a_{km}
     for(int row=0; row<=M; row++) {
         for(int column=0; column<=M; column++) {
             float temp=0.0;
@@ -86,11 +82,9 @@ double calcAndReturnError(double* x,double* t,double* x1,double* t1,int M,int P)
 
         double* row=MC[i];
         row[M+1]=temp;
-        //std::cout << row[M+1] << " " << temp << std::endl;
     }
-    //std::cout << MC;
 
-//loesen
+	//loesen
     for(int row=0; row<=M; row++) {
         double* matrixRow=MC[row];
         double divisor= matrixRow[row];
@@ -120,15 +114,12 @@ double calcAndReturnError(double* x,double* t,double* x1,double* t1,int M,int P)
 
     }
 
-    //std::cout << MC;
-
     //array fuer alle w werte(koennte man vielleicht auch via matrix klasse machen)
     double w[M+1];
     //in array w die w werte speichern
     for(int row=0; row<=M; row++) {
         double* currentRow=MC[row];
         w[row]=currentRow[M+1];
-        //std::cout << w[row] << std::endl;
     }
 
     //E(w)
@@ -153,7 +144,7 @@ double calcAndReturnError(double* x,double* t,double* x1,double* t1,int M,int P)
 
         fehler+=pow(y-t1[p],2);
     }
-    std::cout << "Testfehler: " << fehler << std::endl;
+    std::cout << "Testfehler:      " << fehler << std::endl;
 
     return fehler;
 }
