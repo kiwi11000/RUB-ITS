@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
     int P = 11;
     //komplaexitaet
     int M = 5;
-    int M_MAX=20;
+    int M_MAX=12;
 
     //trainingsset
     double x[P];
@@ -30,9 +30,9 @@ int main(int argc, char* argv[]) {
         x[i] = (((2 * (i + 1) - 1) * M_PI) / P);
         std::cout << x[i] << std::endl;
         // Cos
-        //t[i] = cos(x[i] / 2);
+        t[i] = cos(x[i] / 2);
         // Gauss
-        t[i] = exp(-1 * (pow(x[i], 2) / (2 * pow(0.6, 2))));
+        // t[i] = exp(-1 * (pow(x[i], 2) / (2 * pow(0.6, 2))));
     }
 
     //testset berechnen
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
         // Cos
         tDach[i]=cos(xDach[i]/2);
         // Gauss
-        tDach[i] = exp(-1 * (pow(xDach[i], 2) / (2* pow(0.6, 2))));
+        // tDach[i] = exp(-1 * (pow(xDach[i], 2) / (2* pow(0.6, 2))));
     }
 
 
@@ -49,7 +49,8 @@ int main(int argc, char* argv[]) {
         std::cout << std::endl << std::endl << "Komplaexitaet M= " << i << std::endl;
 
         //Fehler des Trainingssets berechnen (param x, t sind die Trainingssetdaten)
-        std::cout << "Error vom Trainingsset: " << calcAndReturnError(x,t, xDach, tDach, i, P)<< std::endl;
+        //std::cout << "Error vom Trainingsset: " << 
+		calcAndReturnError(x,t, xDach, tDach, i, P); //<< std::endl;
         //Fehler des Testsets berechnen (param xDach, tDach sind die Testsetdaten)
         //std::cout << "Error vom Testset: " <<calcAndReturnError(xDach,tDach, i, P)<<std::endl;
     }
@@ -127,7 +128,7 @@ double calcAndReturnError(double* x,double* t,double* x1,double* t1,int M,int P)
     for(int row=0; row<=M; row++) {
         double* currentRow=MC[row];
         w[row]=currentRow[M+1];
-        //std::cout << M << " " << " " << currentRow[M+1] << " " << w[row] << std::endl;
+        //std::cout << w[row] << std::endl;
     }
 
     //E(w)
@@ -141,7 +142,7 @@ double calcAndReturnError(double* x,double* t,double* x1,double* t1,int M,int P)
         fehler+=pow(y-t[p],2);
     }
 
-    std::cout << fehler << std::endl;
+    std::cout << "Trainingsfehler: " << fehler << std::endl;
     //E(w)
     fehler=0.0;
     for(int p=0; p<P; p++) {
@@ -152,7 +153,7 @@ double calcAndReturnError(double* x,double* t,double* x1,double* t1,int M,int P)
 
         fehler+=pow(y-t1[p],2);
     }
-    std::cout << fehler << std::endl;
+    std::cout << "Testfehler: " << fehler << std::endl;
 
     return fehler;
 }
