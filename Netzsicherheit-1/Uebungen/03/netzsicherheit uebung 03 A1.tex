@@ -1,0 +1,32 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\author{Tilman Bender   Matrikelnummer: 108011247244\\Christian Kröger,   Matrikelnummer: 108011250663\\Thomas Tacke  Matrikelnummer: 108011267882}
+\title{Netzwerksicherheit Übung 3 Aufgabe 1}
+
+%\fancyfoot[L]{Christian Kröger}
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 1}
+\subsection*{a)}
+	\begin{equation}
+		(500000 * 128) = 64000000 \text{bit}
+	\end{equation}
+\subsection*{b)}
+	\begin{equation}
+		500000 * 128 * 2^{28} = 17179869184000000 \text{bit}
+	\end{equation}
+\subsection*{c)}
+\subsubsection*{i}
+\begin{itemize}
+\item \textbf{preimage resistace}: Hätte eine Hashfunktion diese Eigenschaft nicht, so könnte man für einen Gegebenen Hash (z.B. den eines Passwortes) den Klartext (das Passwort) wieder herstellen.
+\item \textbf{second preimage resistance}:Hätte eine Hashfunktion diese Eigenschaft nicht,  so könnte man für eine gegebene Nachricht $X_{1} $eine weitere Nachricht  $X_{2}$ erzeugen, die ungleich der ursprünglichen Nachricht ist, aber den gleichen Hashwert hat. Beispiel: Ein Vertrag über den Kauf eines Autos. Ursprünglich war ein Kaufpreis von 20.000 EUR festgelegt. Der geänderte Vertrag sagt, dass das es zwei Autos für 2 euro sind
+
+\item \textbf{collision resistance:} Hätte eine Hashfunktion diese Eigentschaft nicht, könnte ein Angreifer zwei Nachrichten $X_{1}$, $X_{2}$ erzeugen, die denselben Hashwert haben und  z.B. im Rahmen eines Man in the Middle Angriffs Partei A dazu Bringen $X_{1}$zu signieren, Partei B aber $X_{2}$ präsentieren.
+\end{itemize}
+
+\subsubsection*{ii}
+collision resistant bedeutet, dass ein Angreifer der beide texte frei wählen kann es nicht in vertretbarer Zeit schaffen kann zwei Nachrichten $X_{1}$, $X_{2}$ zu finden, welche den gleichen Hashwert haben. Ist dies für zwei beliebige Nachrichten (zwei Freiheitsgrade) gegeben so ist der Fall des second preimages in dem der Angreifer nur eine Nachricht X2 frei modifizieren kann  (ein Freiheitsgrad) darüber abgedeckt.
+\end{document}

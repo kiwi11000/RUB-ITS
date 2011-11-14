@@ -1,0 +1,39 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{amsmath}
+\author{Tilman Bender   Matrikelnummer: 108011247244\\Christian Kröger,   Matrikelnummer: 108011250663\\Thomas Tacke  Matrikelnummer: 108011267882}
+\title{Netzwerksicherheit Übung 3 Aufgabe 2}
+
+%\fancyfoot[L]{Christian Kröger}
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 2}
+\subsection*{2.1}
+Die Angreifbarkeit von Microsofts Implementierung von PPTP basiert auf den Designschwächen des LAN-Manager Hashes (LMH) und dem bei MS-CHAP eingesetzten Verfahren zum Berechnen der Response.
+Designschwächen im LAN-Manager Hash:
+\begin{enumerate}
+\item Verringerung des Schlüsselraumes durch Begrenzung der Länge auf 14 Zeichen (Gegenmaßnahme: Zulassen beliebiger Länge)
+\item Verringerung des Schlüsselraumes durch Konvertierung des Passworts in Großbuchstaben (Gegenmaßnahme: Konvertierung unterlassen)
+\item Auffüllen zu kurzer Passwörter mit Nullen und separates Verschlüsseln führt zu leichter Erkennbarkeit von Passwörtern mit 7 oder weniger Zeichen (Gegenmaßnahme: Padding \& Auftrennung unterlassen)
+\item Aufteilen des Passworts und separates Verschlüsseln mit S erlaubt separate Angriffe mit kleineren Wörterbüchern (Gegenmaßnahme: Passwort als ganzes hashen)
+\item Es werden keine Salts verwendet. Dies erlaubt die Erstellung von wiederverwendbaren Hash-Dictionaries. (Gegenmaßnahme: Salts verwenden)
+\end{enumerate}
+Microsoft hat einen Großteil dieser Schwächen im Windows NT Hash behoben.
+Designschwächen von MS-CHAP:
+\begin{enumerate}
+	\item Zero-Padding und Aufspalten des Schlüssels erlaubt Rekonstruktion der letzten zwei Bytes des Schlüssels
+	\item Da der Schlüssel durch LMH erzeugt ist und somit dessen Schwächen gelten, kann das Passwort rekonstruiert werden.
+\end{enumerate}
+Gegenmaßnahme: Auf LMH gänzlich verzichten und nur noch WinNT-Hash verwenden. Eine Berechnung der letzten beiden Schlüssel-Bytes (H14,H15 ist immer noch Möglich, führt aber nicht mehr zur Kompromittierung des Passwortes.
+
+\section*{2.2}
+\begin{enumerate}
+\item Probiere alle möglichen Werte von $H_{7}$ . Der richtige Wert ist zu erkennen, wenn C mit $H_{7}$,0 0,0,0,0,0 mit R7..15 übereinstimmt. Dauer: $2^{8}$ Operationen
+\item Probiere die Werte von  $P_{0},\dots, P_{6}$ Falsche Werte können durch die Verschlüsselung  der Konstanten S  und Abgleich des letzten Bytes des Chiffrats mit dem zuvor berechneten Wert für  H7 aussortiert werden.
+\item Von Verbleibenden Kandidaten für $P_{0},\dots, P_{6}$ werden die Hashes dazu verwendet um die Challenge mittels DES zu verschlüsseln. Der Kandidat, der mit $R_{0}...R_{7}$ übereinstimmt bleibt übrig.
+\item Berechne die WinNT-Hashes aller Kombinationen von Groß-/Kleinschreibung des Kandidaten aus dem vorigen Schritt und berechne die Responses. Vergleiche diese im den tatsächlichen WinNT-Hash Responses
+\end{enumerate}
+
+\end{document}
