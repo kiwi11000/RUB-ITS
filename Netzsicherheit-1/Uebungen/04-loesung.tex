@@ -1,0 +1,36 @@
+\documentclass[12pt.twoside,a4paper,notitlepage]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{nameref}
+\usepackage{enumerate}
+
+\begin{document}
+\title{Netzsicherheit I, WS 2011, Übung 4}
+\author{
+\begin{tabular}{ccc}
+Tilman Bender & Christian Kröger & Thomas Tacke \\
+108011247244 & 108011250663 & 108011267882 \\
+\end{tabular}
+}
+\date{\today}
+\maketitle
+
+\section*{a}
+\begin{itemize}
+\item Der einzelne Kunde hat kein Interesse daran, seine kryptographischen Schlüssel (SK, GK, PK) geheimzuhalten.
+\item Marketingstrategien und Sicherheitsanforderungen sind oft unvereinbar.
+\item Geräte und Chipkarten werden preisgünstig und unkontrollierbar abgegeben.
+\item Großes  Potential  an  versierten  Hackern  mit  „einfachen“,   aber effektiven Angriffen.
+\item Frühestes  Beispiel  für  „Seitenkanalangriffe“  in  der  Praxis
+\end{itemize}
+\section*{b}
+Die Chipkarte liefert das Controlword, welches vom Content Scrambling Algorithmus benötigt wird um die empfangenen Daten zu descrambeln.
+
+\section*{c}
+Die Entitlement Control Message (ECM) enthält das mit dem Service Key (SK) verschlüsselte Controlword. Die Entitlement Management Message (EMM) enthält den mit dem Private Key (PK) verschlüsselten Service Key. Auf der Chipkarte wird mit Hilfe des PK die EMM entschlüsselt um den SK zu erhalten. Der SK wird anschließend verwendet um aus der ECM das Controlword zu entschlüsseln.
+
+\end{document}
