@@ -9,7 +9,7 @@
 \usepackage{enumerate}
 
 \begin{document}
-\title{Netzsicherheit I, WS 2011, Übung 4}
+\title{Netzsicherheit I, WS 2011, übung 4}
 \author{
 \begin{tabular}{ccc}
 Tilman Bender & Christian Kröger & Thomas Tacke \\
@@ -27,10 +27,18 @@ Tilman Bender & Christian Kröger & Thomas Tacke \\
 \item Großes  Potential  an  versierten  Hackern  mit  „einfachen“,   aber effektiven Angriffen.
 \item Frühestes  Beispiel  für  „Seitenkanalangriffe“  in  der  Praxis
 \end{itemize}
+
 \section*{b}
-Die Chipkarte liefert das Controlword, welches vom Content Scrambling Algorithmus benötigt wird um die empfangenen Daten zu descrambeln.
+Die Chipkarte dient als vertraünswürdige Umgebung, in der die überprüfung der Rechte sicher stattfinden kann. Schlägt diese überprüfung fehl, so wird das Kontrollwort in der Chipkarte verworfen, der Film bleibt verschlüsselt.
 
 \section*{c}
-Die Entitlement Control Message (ECM) enthält das mit dem Service Key (SK) verschlüsselte Controlword. Die Entitlement Management Message (EMM) enthält den mit dem Private Key (PK) verschlüsselten Service Key. Auf der Chipkarte wird mit Hilfe des PK die EMM entschlüsselt um den SK zu erhalten. Der SK wird anschließend verwendet um aus der ECM das Controlword zu entschlüsseln.
+Die Entitlement Management Message (EMM) dient quasi zur Vergabe von Berechtigungen. Sie enthält den mit dem Private Key (PK) verschlüsselten Service Key sowie die Berechtigungen des Benutzers. Auf der Chipkarte wird mit Hilfe des PK die EMM entschlüsselt um den SK zu erhalten. Der SK wird anschließend verwendet um aus der ECM das Kontrollwort zu entschlüsseln.
+
+Die Entitlement Control Message (ECM) hingegen dient zur Kontrolle der Berechtigungen. Sie enthält das mit dem Service Key (SK) verschlüsselte Kontrollwort sowie zusätliche Bedingungen (Jugendschutz, Abonnements etc.), die es zu überprüfen gilt, bevor dem Nutzer Zugang zum descrambelten Videosignal gegeben wird. Die ECM ist mit einem MAC gegen Manipulation geschützt. 
+
+\section*{d}
+Der Pay-TV-Anbieter verschlüsselt und authentisieret die Programmschlüssel SK und die Rechte des Teilnehmers mit dessen persönlichem Schlüssel  und überträgt diese in der Entitlement Management Message (EMM) an die Chipkarte des Teilnehmers.
+
+Der Decoder filtert die ECMs aus dem allgemeinen Datenstrom  und leitet sie an die Chipkarte weiter . Die Chipkarte Überprüft MAC  und entschlüsselt die Daten mit dem zuvor übertragenen SK. Danach werden die in der ECM enthaltenen Bedingungen mit den auf der Chipkarte gespeicherten Rechten verglichen. Stimmen  die Rechte mit den jeweiligen Bedingungen überein, wird das Kontrollwort von der Chipkarte an den Decoder weitergeleitet und das Videosignal wird entschlüsselt/descrambeld.
 
 \end{document}
