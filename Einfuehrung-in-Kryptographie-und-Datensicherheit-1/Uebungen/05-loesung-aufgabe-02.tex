@@ -1,0 +1,41 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\author{Tilman Bender   Matrikelnummer: 108011247244\\}
+\title{Einführung in Kryptographie und Datensicherheit Übung 5}
+
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 2}
+\subsection*{a)}
+\begin{align} 
+S_{5}(x_{1}) &\oplus S_{5}(x_{2}) &\neq S_{5}(x_{1} \oplus x_{2}) \\
+S_{5}(010100) &\oplus S_{5}(110001) &\neq S_{5}(100101)\\
+0011 &\oplus 0110 &\neq 1100\\
+0101 &&\neq 1100
+\end{align}
+
+\subsection*{b)}
+\begin{align} 
+S_{5}(x_{1}) &\oplus S_{5}(x_{2}) &\neq S_{5}(x_{1} \oplus x_{2}) \\
+S_{5}(111111) &\oplus S_{5}(101000) &\neq S_{5}(010111)\\
+0011 &\oplus 1010 &\neq 1010\\
+1001 &\oplus 1010
+\end{align}
+
+\subsection*{c)}
+\begin{align} 
+S_{5}(x_{1}) &\oplus S_{5}(x_{2}) &\neq S_{5}(x_{1} \oplus x_{2}) \\
+S_{5}(100001) &\oplus S_{5}(011110) &\neq S_{5}(111111)\\
+1011 &\oplus 1001 &\neq 0011\\
+0010 &\oplus 0011
+\end{align}
+
+\end{document}

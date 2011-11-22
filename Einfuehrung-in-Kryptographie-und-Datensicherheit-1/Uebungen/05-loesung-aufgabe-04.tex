@@ -1,0 +1,39 @@
+\documentclass[10pt,a4paper,parskip]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+%fuer Unterstreichungen
+\usepackage{ulem}
+
+\author{Tilman Bender   Matrikelnummer: 108011247244\\}
+\title{Einführung in Kryptographie und Datensicherheit Übung 5}
+
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 4}
+\subsection*{a)}
+\begin{enumerate}
+\item Es fehlt eine hexadezimale Stelle (4 Bit). Anfänglich ist der max. Suchraum=$2^{4}$
+\item Das fehlende Symbol war eine Zahl. Suchraum reduziert sich auf 0000-1001 = 10 Kombinationen
+\item Das vierte fehlende Bit hat auf die Entschlüsselung keinen Einfluss. Man muss also nur 000 - 100 permutieren. = $2^{3}$ = 8 Kombinationen
+\end{enumerate}
+
+Im Durchschnitt muss man also $\frac{2^{3}}{2}$ und im schlechtesten Fall $2^{3}$ Kombinationen durchprobieren.
+
+\subsection*{b)}
+i)
+\sout{0000}, \sout{0001}, \sout{0010}, \sout{0011}\\
+$k_{60\dots64}=0100$ (da das Parity-Bit keine Beachtung findet wäre 0101 ebenfalls eine mögliche Lösung)
+
+ii)
+texttt{Du kannst es dir sparen bei Aufgabe 5.4 vom aktuellen Kryptozettel die ganzen Schlüssel durchzuprobieren.
+Ich habe zufällig bei M.Duermuth im Büro gesehen, dass der Schlüssel mit der Zahl 4 ergänzt
+werden muss. Also nimm einfach B3 3A 89 2B A5 2B CC F4 und ECB Mode vom DES, dann bist
+du schön schnell fertig.}
+
+\end{document}
