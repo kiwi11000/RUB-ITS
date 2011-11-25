@@ -1,0 +1,35 @@
+\documentclass[12pt.twoside,a4paper,notitlepage,parskip]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{nameref}
+\usepackage{enumerate}
+
+\begin{document}
+\title{Netzsicherheit I, WS 2011, Übung 6}
+\author{
+\begin{tabular}{ccc}
+Tilman Bender & Christian Kröger & Thomas Tacke \\
+108011247244 & 108011250663 & 108011267882 \\
+\end{tabular}
+}
+\date{\today}
+\maketitle
+
+\section{ECB vs. CBC}
+CBC ist dem ECB zu bevorzugen, da er gegenüber verschiedenen Angriffen sicherer ist. 
+Nachteile des CBC sind beispielsweise, dass sich dieser nicht parallelisieren lässt und, dass wenn sich in einem Chiffratblock aus irgendeinem Grund (Manipulation oder Übertragungsfehler) ein Bit ändert, wirkt dies sich bei der Entschlüsselung auf alle nachfolgenden Blöcke aus.
+
+\section{MAC vs. Signatur}
+Eine Signatur verwendet zwei Schlüssel, die MAC hingegen nur einen.
+Einsatzgebiete von Signaturen sind beispielsweise das signieren einer E-Mail mittels GPG.
+Einsatzgebiete von MAC sind beispielsweise bei WLAN-Protokollen zur verifizierung einer Nachricht bei der Authorisierung.
+
+\section{Zertifikate}
+Die Grundaufgabe eines Zertifikats im PKI besteht darin, dass dieses einen Kommunikationspartner authentifiziert.
+Ein Root-Zertifikat wird im PKI zur Signatur der Zertifikate von untergeordenten Stellen verwendet. So kann min die Authentizität von Unterzertifikaten nachweisen.
+
+\end{document}
