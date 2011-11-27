@@ -20,16 +20,22 @@ Tilman Bender & Christian Kröger & Thomas Tacke \\
 \maketitle
 
 \section{ECB vs. CBC}
-CBC ist dem ECB zu bevorzugen, da er gegenüber verschiedenen Angriffen sicherer ist. 
-Nachteile des CBC sind beispielsweise, dass sich dieser nicht parallelisieren lässt und, dass wenn sich in einem Chiffratblock aus irgendeinem Grund (Manipulation oder Übertragungsfehler) ein Bit ändert, wirkt dies sich bei der Entschlüsselung auf alle nachfolgenden Blöcke aus.
+\textbf{ECB} verschlüsselt die Blöcke des Klartexts separat voneinander und verwendet immer den gleichen Schlüssel. Dies erlaubt es einem Angreifer wiederkehrende Muster (z.B. Header) in Chiffrat zu erkennen. Da die Blöcke des Chiffrats unabhängig voneinander sind, kann der Angreifer sie beliebig umordnen, ersetzen oder löschen. 
+
+Beim \textbf{CBC} geht das Chiffrat des vorigen Blockes in die Verschlüsselung des nächsten Blockes mit ein wobei bei der Verschlüsselung des ersten Blocks ein Initialisierungvektor verwendet wird, der von Nachricht zu Nachricht verschieden ist. Somit wird verhindert, dass der gleiche Klartext immer auf das gleiche Chiffrat abgebildet wird. Eine Erkennung von Mustern im Chiffrat wird dadurch verhindert.
+
+Ein Nachteil des CBC ist beispielsweise, dass sich dieser nicht parallelisieren lässt. Ein weiterer Nachteil ist, dass (mutwillige) Änderungen im Chiffrat eines Blocks sich  bei der Entschlüsselung auf alle nachfolgenden Blöcke auswirken. Auch wenn manche Manipulationen so erkannt werden können, gewährleistet die Verwendung von CBC nicht die Integrität der Nachricht, da die Änderungen an den Nachfolgenden Blöcken auch zu subtilen Änderungen (z.B.  21432432 zu 21432431) führen können. Die Nachricht erscheint nach wie vor semantisch korrekt , entspricht aber dennoch nicht dem Original.
 
 \section{MAC vs. Signatur}
-Eine Signatur verwendet zwei Schlüssel, die MAC hingegen nur einen.
-Einsatzgebiete von Signaturen sind beispielsweise das signieren einer E-Mail mittels GPG.
-Einsatzgebiete von MAC sind beispielsweise bei WLAN-Protokollen zur verifizierung einer Nachricht bei der Authorisierung.
+MAC beruhen auf symetrischer Kryptographie während digitale Signaturen auf aysmetirscher Kryptographie beruhen. Um den MAC einer Nachricht zu verifizieren, müssen A und B also zuvor einen geheimen gemeinsamen Schlüssel ausgehandelt haben, welcher dann zur Erzeugung des MAC verwendet wird. MACs kommen daher z.B. bei Funkstandards (UMTS, WPA etc.) zum Einsatz. 
+
+In einem Szenario, in dem beide Parteien einander nicht kennen, aber dennoch sicher kommunizieren möchten wie z.B. bei der Kommunikation über E-Mail sind MACs nicht unbedingt ideal. In diesem Zusammenhang kommt die digitale Signatur zum Einsatz, da der Kommnikaitonspartner hier lediglich den öffentlichen Schlüssel des Signierenden kennen muss. 
+
 
 \section{Zertifikate}
-Die Grundaufgabe eines Zertifikats im PKI besteht darin, dass dieses einen Kommunikationspartner authentifiziert.
-Ein Root-Zertifikat wird im PKI zur Signatur der Zertifikate von untergeordenten Stellen verwendet. So kann min die Authentizität von Unterzertifikaten nachweisen.
+Mit einem Zertifikat wird demjenigen der die Authentizität eines Kommunikationspartners verifizieren möchte, von einem unabhängigen dritten (der Certificate Authority)  bescheinigt, dass ein bestimmter öffentlicher Schlüssel tatsächlich zu einer bestimmten Entität (Person, Organisation etc.) gehört. 
 
+Die Certificate Authority (CA) signiert diese Zusicherung wiederum mit ihrem eigenen privaten Schlüssel. Die Authentizität der CA kann wiederum über deren öffentlichen Schlüssel bzw. das entsprechende Zertifikat verifiziert werden. 
+
+Das Zertifikat der CA ist wiederum von einer Root-CA ausgestellt, welche es mit ihrem eigenen privaten Schlüssel signiert und ihren öffentlichen Schlüssel im Root-Zertifikat veröffentlicht und dieses nochmals selbst signiert. Es gibt also keine höhere Instanz in der Vertrauenskette.
 \end{document}
