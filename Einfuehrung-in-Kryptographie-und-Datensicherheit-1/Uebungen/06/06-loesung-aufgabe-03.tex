@@ -1,0 +1,56 @@
+\documentclass[10pt,a4paper,parskip]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\author{Tilman Bender   Matrikelnummer: 108011247244\\}
+\title{Einführung in Kryptographie und Datensicherheit Übung 6}
+
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 3}
+Initiale Vermutung: Die Eigenschaft von DES bezüglich des Komplements ist auf die XOR-Operationen zurückzuführen. Betrachte dazu zunächst die  die XOR-Funktion.
+\begin{table}[htdp]
+\caption{default}
+\begin{center}
+\begin{tabular}{|c|c|c||c|c|c||c|c|c||c|c|c||}
+	a & b & z & $\bar{a}$ & b & z & a & $\bar{b}$ & z & $\bar{a}$ & $\bar{b}$ & z\\ \hline
+	0 & 0 & \textbf{0} & 	1 	 & 0 & \textbf{1}  & 0 & 1		  & \textbf{1} & 1		     &	1		& \textbf{0} \\
+	0 & 1 & \textbf{1} &	1	& 1 &   \textbf{0} & 0 &	0	    &	 \textbf{0} & 1		     & 0		& \textbf{1}\\	
+	1 & 0 & \textbf{1} &	0	& 0 &   \textbf{0} & 1 &	1	    &	 \textbf{0} & 0		     & 1		& \textbf{1}\\	
+	1 & 1 & \textbf{0} &	0	& 1 &   \textbf{1} & 1 &	0	    &	 \textbf{1} & 0		     & 0		& \textbf{0}\\	
+\end{tabular}
+\end{center}
+\label{tbl:xor}
+\end{table}%
+Aus Tabelle \ref{tbl:xor} kann man sehen, dass man unabhängig davon welchen der beiden Eingänge man negiert das gleiche Ergebnis erhält. Ebenso verhält es sich wenn man das Ergebnis für zwei nicht negierte Eingänge mit dem Ergebnis für zwei negierte Eingänge vergleicht: Das Ergebnis ist das gleiche.
+
+Als nächstes Betrachtet man die Behauptung genauer.
+\begin{align*}
+y&=DES_{k}(x)\\
+y&'=DES_{k'}(x')\\
+\end{align*}
+Das heißt
+\begin{align*}
+\overline{DES_{k}(x)}=DES_{\bar{k}}(\bar{x})\\
+\end{align*}
+Als nächstes zeigen wir, dass die Komplement Eigenschaft in der ersten Runde erfüllt ist. Dazu betrachten wir die Rechenvorschrift für $L_{1}$.
+\begin{align*}
+\overline{\underbrace{L_{0}}_\text{a}\oplus \underbrace{f(R_{0},K1)}_\text{b} }= \underbrace{\bar{L_{0}}}_{\bar{a}} \oplus \underbrace{f(\bar{R_{0}},\bar{K_{1}})}_{?}\\
+\end{align*}
+Unter Betrachtung der Tabelle \ref{tbl:xor} kann man Erkennen, dass die Gleichung nur wahr sein kann, wenn man für ? ein b schreibt. Das heißt, dass Ergebnis der Feistel-Funktion f für die Parameter ($R_{0}$,$K_{1}$) und ($\bar{R_{0}}$,$\bar{K_{1}}$) identisch sein muss.
+
+Warum $f(R_{0},K_{1})=(\bar{R_{0}},\bar{K_{1}})$ gilt, kann man durch nähere Betrachtung der Funktion erkennen:
+\begin{align*}
+f(x,k_{i})=P(S(E(x)\oplus K_{i})
+\end{align*}
+In f wird x zunächst über die Expansionsfunktion E auf 48 Bit erweitert. Da diese Funktion keine Ersetzungen vornimmt, verhält Sie sich für x und $\bar{x}$ identisch. Die Ergebnisse von sin E(x) und $E(\bar{x})$ sind also ebenfalls zueinander komplementär.
+
+Die Folgende $\oplus$ Verknüpfung mit $k_{i} $ist der entscheidende Punkt. Denn aus Tabelle \ref{tbl:xor} kann man ablesen, dass $a \oplus b=\bar{a} \oplus \bar{b}$ gilt. Das bedeutet, dass $R_{0} \oplus K_{1}=\bar{R_{0}} \oplus \bar{K_{1}}$. Somit ist der Parameter für die Folgende Substitution in den S-Boxen in beiden Fällen derselbe. Die Abschließende Permutation P verändert daran ebensowenig etwas wie die anfängliche Expansion. 
+
+\end{document}
