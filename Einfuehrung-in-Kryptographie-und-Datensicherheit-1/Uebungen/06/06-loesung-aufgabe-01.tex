@@ -1,0 +1,46 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\author{Tilman Bender   Matrikelnummer: 108011247244\\}
+\title{Einführung in Kryptographie und Datensicherheit Übung 6}
+
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 1}
+\subsection*{a)}
+\begin{align*} 
+	schlimmstenfalls &= 2^{56} \\
+	Durchschnitt &= 2^{56} * 2^{-1}=2^{55}
+\end{align*}
+
+\subsection*{b)}
+\begin{align*} 
+	Dauer &= |Keyspace| &* \#Cracks^{-1}\\
+	Dauer &= 2^{55}&*10^{-7}\\
+\end{align*}
+114 Jahre 89 Tage 23 Stunden 
+\subsection*{c)}
+\begin{align*} 
+	\#Machines &= 17500 &* 350^{-1}
+	\#Machines &=50\\	
+	Dauer &= |Keyspace| &* (\#Machines &* \#Cracks)^{-1}\\
+	Dauer &= 2^{55}&*(50&*10^{7})^{-1}\\
+	Dauer &= 72057594.04 s
+\end{align*}
+2 Jahre 103 Tage 23 Stunden 59 Minuten 54 Sekunden
+\subsection*{d)}
+\begin{align*} 
+	Dauer &= |Keyspace| &* (\#Machines &* \#Cracks)^{-1}\\
+	Dauer &= 2^{55}&*(180*4*12*10^{7})^{-1}\\
+	Dauer &=416999,9655 s
+\end{align*}
+4 Tage 19 Stunden 49 Minuten 59 Sekunden
+
+\end{document}

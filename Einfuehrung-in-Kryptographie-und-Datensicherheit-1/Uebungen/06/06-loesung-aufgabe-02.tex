@@ -1,0 +1,36 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\author{Tilman Bender   Matrikelnummer: 108011247244\\}
+\title{Einführung in Kryptographie und Datensicherheit Übung 6}
+
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 2}
+\subsection*{a)}
+Der einzige Unterschied zwischen der Verschlüsselung und der Entschlüsselung von DES ist, dass bei der Entschlüsselung der Schlüsselfahrplan umgekehrt ($K_{16} \dots K_{1}$) durchlaufen wird.
+
+\subsection*{b)}
+\begin{align*}
+L_{1}^{d}&=R_{0}^{d}\\
+R_{1}^{d}&=L_{0}^{d} \oplus f(R_{0}^{d},K_{16})\\
+\\
+L_{1}^{d}&=L_{16}^{e}\\
+R_{1}^{d}&=R_{16}^{e} \oplus f(L_{16}^{e},K_{16})\\
+\\
+L_{1}^{d}&=R_{15}^{e}\\
+R_{1}^{d}&=L_{15}^{e} \oplus f(R_{15}^{e},K_{16})  \oplus f(R_{15}^{e},K_{16})\\
+\\
+L_{1}^{d}&=R_{15}^{e}\\
+R_{1}^{d}&=L_{15}^{e}
+\end{align*}
+Der Text nach der ersten Runde der Entschlüsselung  ist also der gleiche wie vor der sechzehnten Runde der Verschlüsselung.
+Die erneute Anwendung der F-Funktion mit $K_{16}$ auf das Ergebnis der Verschlüsselung führt also zu einer Umkehrung.
+\end{document}
