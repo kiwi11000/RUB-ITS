@@ -1,0 +1,39 @@
+\documentclass[12pt.twoside,a4paper,notitlepage,parskip]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{nameref}
+\usepackage{enumerate}
+
+\begin{document}
+\title{Netzsicherheit I, WS 2011, Übung 5}
+\author{
+\begin{tabular}{ccc}
+Tilman Bender & Christian Kröger & Thomas Tacke \\
+108011247244 & 108011250663 & 108011267882 \\
+\end{tabular}
+}
+\date{\today}
+\maketitle
+
+\section{Broadcast Encryption I}
+
+\section{Broadcast Encryption II}
+\subsection{a)} Öffentlich ist der Moduls $N=PQ$ (629) sowie die Zuordnung der einzelnen Primzahlen zu den Nutzern $((U_{1},7), (U_{2},5), (U_{3},11))$. Geheim dagegen sind ist die Basis $g \in \mathbb{Z}_{m}$, die Faktoren P, Q sowie die jeweiligen geheimen Zahlen $g_{i}$ (133, 92, 5). 
+
+\subsection{b)} 
+\begin{align*}
+K_{1}&=133^{5*11} \mod{629}&= 533\\
+K_{2}&=92^{7*11} \mod{629}&= 533\\
+K_{2}&=5^{5*7} \mod{629}&= 533
+\end{align*}
+\subsection{c)}
+\begin{align*}
+K_{1}&=133^{11}\mod{629}&=129\\
+K_{2}&=5^{7} \mod{629}&= 129\\
+\end{align*}
+\subsection{d)}
+\end{document}
