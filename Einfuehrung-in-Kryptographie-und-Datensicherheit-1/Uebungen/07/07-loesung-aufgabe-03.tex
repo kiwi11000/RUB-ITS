@@ -1,0 +1,46 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\author{Tilman Bender   Matrikelnummer: 108011247244\\}
+\title{Einführung in Kryptographie und Datensicherheit Übung 7}
+
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 3}
+\subsection*{a)}
+\begin{align*}
+A(x)*B(x) &= (x^{3}+x^{2}+1)*(x^{3}+x)\\
+		&=x^{4}+x^{5}+\not{x^{3}}+\not{x^{3}}+x\\
+		&=x^{5}+x^{4}+x
+\end{align*}
+\begin{align*}
+(x^{5}+x^{4}+x)&:(x^{4}+x^{3}+1)=x\\
+\underline{x^{5}+x^{4}+x}&\\
+0
+\end{align*}
+\subsection*{b)}
+\begin{align*}
+A(x)*B(x) &= (x+1)(x^{3}+1)\\
+		&=x^{4}+x+x^{3}+1\\
+\end{align*}
+\begin{align*}
+(x^{4}+x^{3}+x+1)&:(x^{4}+x^{3}+1)=1\\
+\underline{x^{4}+x^{3}+   +1}&\\
+x
+\end{align*}
+
+\subsection*{c)}
+\begin{align*}
+A(x)*B(x) &=(x^{3}+x^{2}+x+1)(x^{3}+x^{2})\\
+		&=x^{5}+x^{5}+x^{4}+x^{4}+x^{3}+x^{3}\\
+		&=\not{x^{5}}+\not{x^{5}}+\not{x^{4}}+\not{x^{4}}+\not{x^{3}}+\not{x^{3}}\\
+		&=0
+\end{align*}
+\end{document}
