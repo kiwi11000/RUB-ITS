@@ -1,0 +1,43 @@
+\documentclass[12pt.twoside,a4paper,notitlepage,parskip]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{nameref}
+\usepackage{enumerate}
+
+\begin{document}
+\title{Netzsicherheit I, WS 2011, Übung 6}
+\author{
+\begin{tabular}{ccc}
+Tilman Bender & Christian Kröger & Thomas Tacke \\
+108011247244 & 108011250663 & 108011267882 \\
+\end{tabular}
+}
+\date{\today}
+\maketitle
+
+\section{Broadcast Encryption III}
+\begin{align*}
+U_{1}:(N,p_{1},g_{1})&=(179141,p_{3}*7,?)\\
+U_{2}:(N,p_{2},g_{2})&=(179141,p_{2},?)\\
+U_{3}:(N,p_{3},g_{3})&=(179141,7,67050)
+\end{align*}
+
+Da $p_{3}$ ein Teiler von $p_{1}$ ist, sind die Werte von $g_{1}$ und $g_{3}$  identisch:
+\begin{align*}
+g_{1}&=g^{p_{3}*x}=g^{7*x} \mod{N}\\
+g_{3}&=g^{p_{3}}=g^{7} \mod{N}\\
+\end{align*} 
+Da uns als Angreifer $g_{3}$ bekannt ist, kennen wir nun auch Geheimnis  $g_{1}$ eines der Gruppenmitglieder. 
+Daraus kann der Gruppenschlüssel berechnet werden.
+
+\begin{align*}
+g_{p_{T}}&=g_{i}^{p_{1}*p_{2}} \mod{N}\\ 
+g_{p_{T}}&=g_{1}^{p_{2}}=g_{3}^{p_{2}} \mod{N}\\
+g_{p_{T}}&=138791
+\end{align*} 
+
+\end{document}
