@@ -1,0 +1,33 @@
+\documentclass[12pt.twoside,a4paper,notitlepage,parskip]{scrartcl}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{nameref}
+\usepackage{enumerate}
+
+\begin{document}
+\title{Netzsicherheit I, WS 2011, Übung 6}
+\author{
+\begin{tabular}{ccc}
+Tilman Bender & Christian Kröger & Thomas Tacke \\
+108011247244 & 108011250663 & 108011267882 \\
+\end{tabular}
+}
+\date{\today}
+\maketitle
+
+\section{Broadcast Encryption III}
+$p_{1} = 1337, p_{2} = 1231, p_{3} = 7, U3 = (179141, 7, 67050), T = {U1, U2}$\\
+\begin{tabular}{ccccc}
+$g^{pT} $&$=$&$ g^{p,p_{2}} $&$ $&\\
+$p_{1} $&$=$&$ c \cdot p_{3} $&$ $& \\
+$g^{p_{1}} $&$=$&$ g^{c \cdot p_{3}} $&$=$&$ (g^{p_{3}})^{c} $\\
+$g^{p,p_{2}} $&$=$&$ g^{c \cdot p_{3} \cdot p_{2}} $&$=$&$ (g^{p_{3}})^{c \cdot p_{2}} $\\
+&$=$&$ gc^{c \cdot p_{2}} $&$=$&$ g_{3}^{191 \cdot 1231} $\\
+&$=$&$ 59517 mod 179141 $& &
+\end{tabular}
+
+\end{document}
